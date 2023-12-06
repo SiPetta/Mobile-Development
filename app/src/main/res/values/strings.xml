@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SiPetta</string>
+    <string name="signup">SIGNUP</string>
+    <string name="login">LOGIN</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="message_welcome_page">Bingung mau konsultasi masalah urban-farming? Di SiPetta aja!</string>
+    <string name="title_welcome_page">Selamat datang di SiPetta!</string>
+    <string name="message_login_page">Masukkan email dan password.</string>
+    <string name="message_signup_page">Buat akun untuk melanjutkan.</string>
+    <string name="message_main_page">Selamat Datang di SiPetta.</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Keluar</string>
+</resources>
