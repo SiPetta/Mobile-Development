@@ -16,6 +16,30 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.plant.SeledriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.plant.SeladaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.plant.SawiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.plant.BawangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.plant.AndewiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.post.AddNewPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.form.FormActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.welcome.WelcomeActivity"
             android:exported="false" />
         <activity

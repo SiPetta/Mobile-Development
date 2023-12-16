@@ -23,7 +23,7 @@ class SignUpViewModel(private val userRepository: UserRepository): ViewModel() {
         viewModelScope.launch {
             try {
                 val response = userRepository.register(name, email, password)
-                if (!response.status!!) {
+                if (!response.error!!) {
                     signupResult.value = "Register Success."
                 } else {
                     signupResult.value = response.message ?: "Registration failed."

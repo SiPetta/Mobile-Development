@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.dicoding.sipetta.R
+import com.dicoding.sipetta.view.home.HomeActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -15,7 +16,6 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        // Menunggu beberapa detik sebelum beralih ke aktivitas lain
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
@@ -24,6 +24,6 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val SPLASH_DELAY = 3000 // Waktu tampilan splash dalam milidetik (misalnya 3000ms = 3 detik)
+        private const val SPLASH_DELAY = 3000
     }
 }
