@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.sipetta.data.UserRepository
+import com.dicoding.sipetta.data.api.ErrorResponse
 import com.dicoding.sipetta.data.api.LoginResponse
 import com.dicoding.sipetta.data.pref.UserModel
 import com.google.gson.Gson
@@ -24,24 +25,23 @@ class LoginViewModel(private val repository: UserRepository) : ViewModel() {
         viewModelScope.launch {
             try {
                 val loginResponse = repository.login(email, password)
+                val token = loginResponse?.accessToken
+                if (token != null) {
+                    Log.d("Token", "Token: $token")
+
+                    val user = UserModel(email, token, isLogin = true)
+                    saveSession(user) // Simpan sesi pengguna
+                }
+
                 loginResult.value = loginResponse
-                handleLoginResponse(loginResponse)
             } catch (e: HttpException) {
-                val errorBody = e.response()?.errorBody()?.string()
-                val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+                val jsonInString = e.response()?.errorBody()?.string()
+                val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+                val errorMessage = errorBody.message ?: "Login gagal. Terjadi kesalahan pada aplikasi."
+                val errorResponse = LoginResponse(error = true, message = errorMessage)
                 loginResult.value = errorResponse
                 Log.e("LoginError", "Login failed", e)
             }
-        }
-    }
-
-    private fun handleLoginResponse(response: LoginResponse) {
-        if (response.error == false && response.status == 200) {
-            val accessToken = response.accessToken
-            Log.d("AccessToken", "Token: $accessToken")
-        } else {
-            val errorMessage = response.message ?: "Login failed. Unknown error."
-            Log.e("LoginError", "Error: $errorMessage")
         }
     }
 }
