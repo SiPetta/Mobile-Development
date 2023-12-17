@@ -4,20 +4,18 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.sipetta.ViewModelFactory
 import com.dicoding.sipetta.data.api.ApiConfig
 import com.dicoding.sipetta.data.pref.UserModel
 import com.dicoding.sipetta.databinding.ActivityLoginBinding
 import com.dicoding.sipetta.view.home.HomeActivity
-import com.dicoding.sipetta.view.main.MainActivity
-import com.dicoding.sipetta.view.welcome.WelcomeActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -53,61 +51,41 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-
         binding.loginButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
-            AlertDialog.Builder(this).apply {
-                setTitle("Yeah!")
-                setMessage("Anda berhasil login. Sudah tidak sabar untuk belajar ya?")
-                setPositiveButton("Lanjut") { _, _ ->
-                    val intent = Intent(context, HomeActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intent)
-                    finish()
+            showLoading(true)
+
+            viewModel.loginUser(email, password)
+
+            viewModel.saveSession(UserModel(email, password))
+            viewModel.loginResult.observe(this) { loginResponse ->
+                showLoading(false)
+                if (loginResponse != null && !loginResponse.error!!) {
+                    AlertDialog.Builder(this).apply {
+                        setTitle("Yeah!")
+                        setMessage("Success")
+                        setPositiveButton("Lanjut") { _, _ ->
+                            val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                            finish()
+                        }
+                        create()
+                        show()
+                    }
+                } else {
+                    AlertDialog.Builder(this).apply {
+                        setTitle("Oops!")
+                        setMessage("Login Failed.")
+                        setPositiveButton("OK", null)
+                        create()
+                        show()
+                    }
                 }
-                create()
-                show()
             }
         }
-
-
-//        binding.loginButton.setOnClickListener {
-//            val email = binding.emailEditText.text.toString()
-//            val password = binding.passwordEditText.text.toString()
-//
-//            showLoading(true)
-//
-//            viewModel.loginUser(email, password)
-//
-//            viewModel.saveSession(UserModel(email, password))
-//            viewModel.loginResult.observe(this) { loginResponse ->
-//                showLoading(false)
-//                if (loginResponse != null && !loginResponse.error!!) {
-//                    AlertDialog.Builder(this).apply {
-//                        setTitle("Yeah!")
-//                        setMessage("Success")
-//                        setPositiveButton("Lanjut") { _, _ ->
-//                            val intent = Intent(this@LoginActivity, WelcomeActivity::class.java)
-//                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//                            startActivity(intent)
-//                            finish()
-//                        }
-//                        create()
-//                        show()
-//                    }
-//                } else {
-//                    AlertDialog.Builder(this).apply {
-//                        setTitle("Oops!")
-//                        setMessage("Login Failed.")
-//                        setPositiveButton("OK", null)
-//                        create()
-//                        show()
-//                    }
-//                }
-//            }
-//        }
     }
 
     private fun playAnimation() {

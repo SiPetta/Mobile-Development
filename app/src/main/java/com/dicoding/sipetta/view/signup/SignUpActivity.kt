@@ -14,8 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.sipetta.ViewModelFactory
 import com.dicoding.sipetta.data.api.ApiConfig
 import com.dicoding.sipetta.databinding.ActivitySignUpBinding
-import com.dicoding.sipetta.view.home.HomeActivity
-import com.dicoding.sipetta.view.main.MainActivity
 import com.dicoding.sipetta.view.welcome.WelcomeActivity
 
 class SignUpActivity : AppCompatActivity() {
@@ -53,55 +51,41 @@ class SignUpActivity : AppCompatActivity() {
     private fun setupAction() {
 
         binding.signupButton.setOnClickListener {
+            val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
+            val password = binding.passwordEditText.text.toString()
 
-            AlertDialog.Builder(this).apply {
-                setTitle("Yeah!")
-                setMessage("Akun dengan $email sudah jadi nih. Yuk, login dan belajar coding.")
-                setPositiveButton("Lanjut") { _, _ ->
-                    finish()
+            showLoading(true)
+            viewModel.register(name, email, password)
+
+            viewModel.getSignupResult().observe(this) { signupResult ->
+                showLoading(false)
+                if (signupResult != null) {
+                    if (signupResult == "Register Success.") {
+                        AlertDialog.Builder(this).apply {
+                            setTitle("Yeah!")
+                            setMessage("Akun dengan $email sudah jadi nih. Yuk, login sekarang! ")
+                            setPositiveButton("Lanjut") { _, _ ->
+                                finish()
+                            }
+                            create()
+                            show()
+                        }
+                    } else {
+                        AlertDialog.Builder(this).apply {
+                            setTitle("Oops!")
+                            setMessage("Registration Failed.")
+                            setPositiveButton("OK", null)
+                            create()
+                            show()
+                        }
+                    }
                 }
-                create()
-                show()
             }
-        }
 
-//        binding.signupButton.setOnClickListener {
-//            val name = binding.nameEditText.text.toString()
-//            val email = binding.emailEditText.text.toString()
-//            val password = binding.passwordEditText.text.toString()
-//
-//            showLoading(true)
-//            viewModel.register(name, email, password)
-//
-//            viewModel.getSignupResult().observe(this) { signupResult ->
-//                showLoading(false)
-//                if (signupResult != null) {
-//                    if (signupResult == "Register Success.") {
-//                        AlertDialog.Builder(this).apply {
-//                            setTitle("Yeah!")
-//                            setMessage("Akun dengan $email sudah jadi nih. Yuk, login dan belajar coding.")
-//                            setPositiveButton("Lanjut") { _, _ ->
-//                                finish()
-//                            }
-//                            create()
-//                            show()
-//                        }
-//                    } else {
-//                        AlertDialog.Builder(this).apply {
-//                            setTitle("Oops!")
-//                            setMessage("Registration Failed.")
-//                            setPositiveButton("OK", null)
-//                            create()
-//                            show()
-//                        }
-//                    }
-//                }
-//            }
-//
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        }
+            val intent = Intent(this, WelcomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun playAnimation() {
