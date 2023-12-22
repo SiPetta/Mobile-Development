@@ -6,6 +6,9 @@ Capstone Project for Bangkit Academy Batch 2 2023 led by Google, Gojek, Travelok
 ## About SiPetta
 SiPetta was created to solve complex problems in urban agriculture through efficient digital solutions. Agricultural land availability is an important challenge hindering the success of widespread urban farming initiatives and sustainable and efficient agriculture. Rapid urbanization and reduced land availability are hampering the growth of local food production and preventing communities from fully realizing the benefits of agriculture, especially in urban areas. Therefore, SiPetta is here to help urban agricultural practitioners and accommodate experts who want to participate in the sustainability of urban agriculture today actively. This solution is in line with the creation of sustainable and livable cities that prioritize local food production.
 
+## Mobile Development
+The Mobile Development part is responsible for creating a functional Android application. SiPetta has 3 main menus: Home, Favorite, and Profile. In the Home section, users can view a list of posts from other users and can add a new post by clicking the '+' button or 'Add New Post.' Subsequently, users will be directed to a form page to select the type of plant and check checkboxes based on the symptoms of the user's chosen plant type. Users can also add additional descriptions to the posts.
+
 ## About Team
 Hello, we are from CH2-PS399!
 | MEMBER | STUDENT ID | PATH |
