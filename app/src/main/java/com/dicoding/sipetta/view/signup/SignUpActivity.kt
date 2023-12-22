@@ -2,7 +2,6 @@ package com.dicoding.sipetta.view.signup
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -14,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.sipetta.ViewModelFactory
 import com.dicoding.sipetta.data.api.ApiConfig
 import com.dicoding.sipetta.databinding.ActivitySignUpBinding
-import com.dicoding.sipetta.view.welcome.WelcomeActivity
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -49,14 +47,13 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-
         binding.signupButton.setOnClickListener {
             val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
             showLoading(true)
-            viewModel.register(name, email, password)
+            viewModel.signup(name, email, password)
 
             viewModel.getSignupResult().observe(this) { signupResult ->
                 showLoading(false)
@@ -64,7 +61,7 @@ class SignUpActivity : AppCompatActivity() {
                     if (signupResult == "Register Success.") {
                         AlertDialog.Builder(this).apply {
                             setTitle("Yeah!")
-                            setMessage("Akun dengan $email sudah jadi nih. Yuk, login sekarang! ")
+                            setMessage("Akun dengan $email sudah jadi nih. Yuk, login sekarang!")
                             setPositiveButton("Lanjut") { _, _ ->
                                 finish()
                             }
@@ -82,9 +79,6 @@ class SignUpActivity : AppCompatActivity() {
                     }
                 }
             }
-
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
         }
     }
 
@@ -96,8 +90,6 @@ class SignUpActivity : AppCompatActivity() {
         }.start()
 
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
-        val message =
-            ObjectAnimator.ofFloat(binding.messageTextView, View.ALPHA, 1f).setDuration(100)
         val nameTextView =
             ObjectAnimator.ofFloat(binding.nameTextView, View.ALPHA, 1f).setDuration(100)
         val nameEditTextLayout =
@@ -115,7 +107,6 @@ class SignUpActivity : AppCompatActivity() {
         AnimatorSet().apply {
             playSequentially(
                 title,
-                message,
                 nameTextView,
                 nameEditTextLayout,
                 emailTextView,

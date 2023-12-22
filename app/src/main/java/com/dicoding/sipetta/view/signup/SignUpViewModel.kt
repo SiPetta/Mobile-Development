@@ -19,7 +19,7 @@ class SignUpViewModel(private val userRepository: UserRepository): ViewModel() {
         return signupResult
     }
 
-    fun register(name: String, email: String, password: String) {
+    fun signup(name: String, email: String, password: String) {
         viewModelScope.launch {
             try {
                 val response = userRepository.register(name, email, password)

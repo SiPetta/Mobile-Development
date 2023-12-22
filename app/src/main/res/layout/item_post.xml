@@ -22,20 +22,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_item_photo"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:scaleType="centerCrop"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="15dp"
                     tools:src="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/tv_item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="37dp"
                     android:text="Nama Pengguna"
+                    android:textColor="@color/secondary_color"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -46,11 +49,13 @@
                 android:layout_height="wrap_content"
                 android:text="Deskripsi atau informasi lainnya"
                 android:textSize="20sp"
+                android:textColor="@color/secondary_color"
                 android:layout_marginLeft="14dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="14dp"
                 android:layout_marginBottom="14dp"
                 android:ellipsize="end"
-                android:maxLines="2" />
+                android:maxLines="10" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,18 +64,20 @@
 
                 <TextView
                     android:id="@+id/tv_item_label"
-                    android:layout_width="48dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="14dp"
                     android:ellipsize="end"
                     android:text="Label"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:background="@color/secondary_color"/>
 
                 <TextView
                     android:id="@+id/tv_item_textsim"
-                    android:layout_width="56dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="20dp"
@@ -78,11 +85,13 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:text="Text Sim"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:background="@color/secondary_color"/>
 
                 <TextView
                     android:id="@+id/tv_item_severity"
-                    android:layout_width="56dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="20dp"
@@ -90,26 +99,38 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:text="Severity"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:background="@color/secondary_color"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
                 <ImageView
-                    android:id="@+id/tv_item_reply"
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/iv_item_fav"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:onClick="onFavoriteClicked"
+                    android:scaleType="centerCrop"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                    tools:src="@drawable/ic_fav" />
+
+                <ImageView
+                    android:id="@+id/iv_item_reply"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="20dp"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/ic_reply" />
 
-                <ImageView
-                    android:id="@+id/tv_item_fav"
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
-                    android:scaleType="centerCrop"
-                    tools:src="@drawable/ic_fav" />
             </LinearLayout>
 
 

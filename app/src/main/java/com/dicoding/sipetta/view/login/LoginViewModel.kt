@@ -25,12 +25,12 @@ class LoginViewModel(private val repository: UserRepository) : ViewModel() {
         viewModelScope.launch {
             try {
                 val loginResponse = repository.login(email, password)
-                val token = loginResponse?.accessToken
+                val token = loginResponse.accessToken
                 if (token != null) {
                     Log.d("Token", "Token: $token")
 
                     val user = UserModel(email, token, isLogin = true)
-                    saveSession(user) // Simpan sesi pengguna
+                    saveSession(user)
                 }
 
                 loginResult.value = loginResponse

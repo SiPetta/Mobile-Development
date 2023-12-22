@@ -1,5 +1,6 @@
 package com.dicoding.sipetta.view.home
 
+import com.dicoding.sipetta.view.fragment.ProfileFragment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,6 @@ import com.dicoding.sipetta.R
 import androidx.fragment.app.Fragment
 import com.dicoding.sipetta.view.fragment.FavoriteFragment
 import com.dicoding.sipetta.view.fragment.HomeFragment
-import com.dicoding.sipetta.view.fragment.ProfileFragment
 import com.dicoding.sipetta.view.post.AddNewPostActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton

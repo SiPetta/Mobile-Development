@@ -1,6 +1,7 @@
 package com.dicoding.sipetta.data
 
 import com.dicoding.sipetta.data.api.ApiService
+import com.dicoding.sipetta.data.api.DetailUserResponse
 import com.dicoding.sipetta.data.api.LoginResponse
 import com.dicoding.sipetta.data.api.SignUpResponse
 import com.dicoding.sipetta.data.pref.UserModel
@@ -18,6 +19,10 @@ class UserRepository private constructor(
 
     suspend fun login(email: String, password: String): LoginResponse {
         return apiService.login(email, password)
+    }
+
+    suspend fun getDetailUser(token: String): DetailUserResponse {
+        return apiService.getDetailUser("Bearer $token")
     }
 
     suspend fun saveSession(user: UserModel) {

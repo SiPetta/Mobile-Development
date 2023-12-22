@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.post.NotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.DetailPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.plant.SeledriActivity"
             android:exported="false" />
         <activity
@@ -35,9 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".view.home.HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.form.FormActivity"
             android:exported="false" />
         <activity
             android:name=".view.welcome.WelcomeActivity"
@@ -61,5 +64,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

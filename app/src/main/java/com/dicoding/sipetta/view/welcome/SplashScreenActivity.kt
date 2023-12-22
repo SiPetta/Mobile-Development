@@ -2,12 +2,11 @@ package com.dicoding.sipetta.view.welcome
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.sipetta.R
-import com.dicoding.sipetta.view.home.HomeActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
