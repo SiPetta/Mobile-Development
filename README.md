@@ -2,28 +2,15 @@
 # SiPetta : Urban Farming Consultation Application
 Capstone Project for Bangkit Academy Batch 2 2023 led by Google, Gojek, Traveloka, and GoTo
 
-![Mockup Hp 2](https://github.com/SiPetta/SiPetta/assets/154583967/b96bb16a-ab04-4636-8f38-8c4963522948)
-## About SiPetta
-SiPetta was created to solve complex problems in urban agriculture through efficient digital solutions. Agricultural land availability is an important challenge hindering the success of widespread urban farming initiatives and sustainable and efficient agriculture. Rapid urbanization and reduced land availability are hampering the growth of local food production and preventing communities from fully realizing the benefits of agriculture, especially in urban areas. Therefore, SiPetta is here to help urban agricultural practitioners and accommodate experts who want to participate in the sustainability of urban agriculture today actively. This solution is in line with the creation of sustainable and livable cities that prioritize local food production.
-
 ## Mobile Development
 The Mobile Development part is responsible for creating a functional Android application. SiPetta has 3 main menus: Home, Favorite, and Profile. In the Home section, users can view a list of posts from other users and can add a new post by clicking the '+' button or 'Add New Post.' Subsequently, users will be directed to a form page to select the type of plant and check checkboxes based on the symptoms of the user's chosen plant type. Users can also add additional descriptions to the posts.
 
-## About Team
-Hello, we are from CH2-PS399!
-| MEMBER | STUDENT ID | PATH |
-|--------|------------|------|
-|Allan Ruhui Fatmah Sari |M296BSX1021 |Machine Learning |
-|Adhisa Shilfadianis Iffadah |M296BSX1114 |Machine Learning |
-|Adi Prakarsa Dwi Utama |M004BSY1587 |Machine Learning |
-|Alfikiyar Tirta Haidar |C123BSY4154 |Cloud Computing |
-|Mirza Hisyam Maulana |C296BSY3924 |Cloud Computing|
-|Aqyun Rista Maulidin |A123BSX2684 |Mobile Development |
-
-![Screenshot (73)](https://github.com/SiPetta/SiPetta/assets/154583967/0c78461f-046f-475e-bf23-6b30d5978bd7)
-## Documentation
-Here is our sourcode documentation:
-- Mobile Apps: https://github.com/SiPetta/Mobile-Development
-- Machine Learning : https://github.com/SiPetta/Machine-Learning
-- Cloud & Backend : https://github.com/SiPetta/Cloud-Computing
-- Web Admin : http://35.185.203.218/
+## Our Application
+<div style="display:flex; justify-content:space-between;">
+    <img src="https://github.com/SiPetta/Mobile-Development/assets/154583967/5295793e-5fa2-4cd6-b8ee-9b139b40bd5c" alt="Image 1" width="200" />
+    <img src="https://github.com/SiPetta/Mobile-Development/assets/154583967/f871f7b8-36f4-43d4-b499-6a1a48601147" alt="Image 1" width="200" />
+    <img src="https://github.com/SiPetta/Mobile-Development/assets/154583967/aa480730-376f-4d14-a391-a23e84ca3a49" alt="Image 2" width="200" />
+    <img src="https://github.com/SiPetta/Mobile-Development/assets/154583967/17213bf5-0b41-4b7d-9ab7-7089c04c0c46" alt="Image 3" width="200" />
+    <img src="https://github.com/SiPetta/Mobile-Development/assets/154583967/c3abf020-8dfc-4653-aaa2-7d21ac105f1e" alt="Image 4" width="200" />
+    <img src="https://github.com/SiPetta/Mobile-Development/assets/154583967/9bf7d80e-c968-4e74-ae99-8645df938b1d" alt="Image 5" width="200" />
+</div>
