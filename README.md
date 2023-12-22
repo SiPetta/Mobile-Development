@@ -20,7 +20,7 @@ Hello, we are from CH2-PS399!
 ![Screenshot (73)](https://github.com/SiPetta/SiPetta/assets/154583967/0c78461f-046f-475e-bf23-6b30d5978bd7)
 ## Documentation
 Here is our sourcode documentation:
-- Mobile Apps: https://github.com/aqyun/SiPetta
+- Mobile Apps: https://github.com/SiPetta/Mobile-Development
 - Machine Learning : https://github.com/SiPetta/Machine-Learning
 - Cloud & Backend : https://github.com/SiPetta/Cloud-Computing
 - Web Admin : http://35.185.203.218/
